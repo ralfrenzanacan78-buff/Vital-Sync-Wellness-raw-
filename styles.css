@@ -1,0 +1,1591 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F7F9F5; /* Soft Off-White */
+    color: #2E2E2E; /* Deep Gray */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   COLOR PALETTE
+   ============================================ */
+:root {
+    --primary: #1e883eb3;    /* Sage Green */
+    --background: #F7F9F5;/* Soft Off-White */
+    --accent: #b2bbb4;    /* Warm Sand */
+    --text: #2E2E2E;      /* Deep Gray */
+    --white: #FFFFFF;
+    --light-gray: #f0f0f0;
+}
+
+/* ============================================
+   HEADER & NAVIGATION - FINAL VERSION
+   ============================================ */
+header {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 0.8rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 8px !important;
+    text-decoration: none;
+}
+
+a img {
+  width: 150px;
+  height: auto;
+  border-radius: 0 !important; /* Tanggalin yung bilog */
+  border: none !important;    /* Tanggalin yung border */
+  object-fit: contain;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px 4px 0 0;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+/* HIGHLIGHT EFFECT */
+.nav-menu a:hover,
+.dropdown:hover .dropbtn {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* Rotate arrow on hover */
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 0 4px 4px 4px;
+    z-index: 101;
+    top: 100%;
+    left: 0;
+    color: var(--text);
+    border-top: 3px solid var(--primary);
+}
+
+/* Special style para sa "More" dropdown na may columns */
+.more-dropdown {
+    min-width: 420px;
+    display: none;
+    flex-direction: row;
+}
+
+.dropdown-column {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+.dropdown-content a {
+    color: var(--text);
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.2s ease;
+    border-radius: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--accent);
+    color: var(--text);
+}
+
+/* Ipakita agad pag hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* Para sa mga walang dropdown */
+.nav-link {
+    padding: 0.5rem 0.8rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.subscribe {
+    background-color: #1e9042; /* Darker Green - bagay sa header */
+    color: white; /* White text para malinaw */
+}
+
+
+.subscribe:hover {
+    background-color: #2a9d4c; /* Lighter Green pag napadaan ang mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.login {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.login:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    padding: 3rem 0;
+    background-color: var(--white);
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.btn.primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn.primary:hover {
+    background-color: #29931ba0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   TOPICS SECTION
+   ============================================ */
+.topics {
+    padding: 3rem 0;
+}
+
+.topics h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.topic-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.topic-card img {
+  height: 280px;  /* Pinalaki ang pic */
+  width: 100%;
+  object-fit: cover;
+}
+
+.topic-card h4 {
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+/* ============================================
+   CATEGORIES SECTION
+   ============================================ */
+.categories {
+    padding: 3rem 0;
+    background-color: var(--light-gray);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.category-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card img {
+    height: 180px;  /* Pinalaki pic */
+    width: 100%;    /* adjust width */
+    object-fit: cover; 
+    margin: 0 auto 1rem;
+    border-radius: 8px; /* rounded corners maganda tingnan */
+}
+
+.category-card h4 {
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   TOOLS SECTION
+   ============================================ */
+.tools {
+    padding: 3rem 0;
+}
+
+.tools h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background-color 0.3s ease;
+}
+
+.tool-card:hover {
+    background-color: var(--accent);
+    color: var(--text);
+}
+
+.category-card img {
+    height: 180px;  /* Pinalaki pic */
+    width: 100%;    /* adjust width */
+    object-fit: cover; 
+    margin: 0 auto 1rem;
+    border-radius: 8px; /* rounded corners maganda tingnan */
+}
+
+/* ============================================
+   FOOTER STYLES - UPDATED
+   ============================================ */
+footer {
+    background-color: #1e883eb3; /* Green mo na yan */
+    color: var(--white);
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* NEWSLETTER */
+.newsletter {
+    flex: 1;
+}
+
+.newsletter h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.newsletter small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* FOOTER RIGHT (SOCIAL + APPS) */
+.footer-right {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.social-media h4,
+.app-download h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+/* SOCIAL ICONS - CLEAN WHITE STYLE */
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid white; /* White border */
+    color: white; /* White text */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Bilog */
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: white; /* White background pag hover */
+    color: #1e883eb3; /* Green text pag hover */
+}
+
+/* APP STORE & GOOGLE PLAY LOGOS - GAGAWING WHITE */
+.app-download img {
+    height: 40px;
+    margin-bottom: 0.5rem;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.app-download img:hover {
+    opacity: 1; /* Mas bright pag hinover */
+}
+
+/* LINKS */
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* FOOTER LOGO - KUNG IMAGE ITO */
+.footer-logo img {
+    filter: brightness(0) invert(1); /* Gagawing WHITE din */
+    max-width: 200px;
+    height: auto;
+}
+
+/* KUNG TEXT LANG YUNG LOGO */
+.footer-logo h2 {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-top,
+    .footer-right {
+        flex-direction: column;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 992px) {
+    header .container {
+        flex-wrap: wrap;
+    }
+    .nav-menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+    }
+    .more-dropdown {
+        min-width: 300px;
+        flex-direction: column;
+    }
+}
+/* --- A-Z Topics Style --- */
+.topics {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.topics h2 {
+    color: #2E7D32;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.alphabet-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.alphabet-grid a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.alphabet-grid a:hover {
+    background-color: #2E7D32;
+    transform: scale(1.1);
+}
+
+/* --- DISEASE LIST STYLE --- */
+.content-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.content-section h3 {
+    color: #2E7D32;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.disease-list {
+    list-style: none;
+    padding: 0;
+}
+
+.disease-list li {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    border-left: 5px solid #4CAF50;
+}
+
+.disease-list li strong {
+    color: #2E7D32;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.disease-list li p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+/* --- STYLE FOR INDIVIDUAL DISEASE PAGE --- */
+.disease-detail {
+    padding: 50px 0;
+}
+
+.disease-detail h1 {
+    color: #2E7D32;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.text-content {
+    flex: 2; /* Mas malaki space para sa text */
+}
+
+.image-content {
+    flex: 1; /* Space para sa picture */
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.text-content h2 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin: 25px 0 10px;
+}
+
+.text-content p, .text-content li {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* Para gumanda sa phone */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .image-content {
+        order: -1; /* Ilagay muna yung picture sa taas pag sa phone */
+    }
+}
+.disease-list li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.disease-list li:hover {
+    transform: translateX(5px); /* Lumilipat pakanan */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Shadow effect lang */
+}
+/* === PARA HINDI DIKIT SA HEADER === */
+main {
+    padding-top: 30px; /* Space sa taas */
+    padding-bottom: 30px; /* Space sa baba para balanse */
+}
+/* === SOCIAL MEDIA ICONS === */
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space sa pagitan */
+    align-items: center;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white; /* White circle border lang */
+    border-radius: 50%; /* Pabilog */
+    background: transparent;
+    transition: all 0.3s ease;
+    /* === PARA MAWALA YUNG BOX === */
+    text-decoration: none; /* Tanggalin yung underline */
+    outline: none;
+    border: none; /* Kung ayaw mo na ng border, tanggalin mo tong line na ito */
+}
+
+.social-icons a img {
+    width: 24px; /* Size ng logo */
+    height: auto;
+    display: block; /* Para walang extra space sa ilalim */
+    /* === PARA MAWALA YUNG BORDER SA PICTURE === */
+    border: none !important;
+}
+
+/* HOVER EFFECT */
+.social-icons a:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+/* --- General Button Styling --- */
+.btn-green {
+    /* Display and Layout */
+    display: inline-block; /* Allows setting width/height and margin/padding */
+    
+    /* Appearance */
+    background-color: #4CAF50; /* A nice green color */
+    color: white; /* Text color */
+    padding: 12px 24px; /* Vertical and horizontal padding */
+    text-align: center; /* Center the text inside the button */
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Indicate it's clickable */
+    
+    /* Transitions for smooth effects */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* --- Hover Effect --- */
+.btn-green:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+/* --- Active Effect (when clicked) --- */
+.btn-green:active {
+    transform: translateY(0); /* Bring it back down */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+}
+
+/* --- Optional: Focus Effect for Accessibility --- */
+.btn-green:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Add a green outline for focus */
+}
+.btn-green {
+  margin-top: 20px; /* Pwede mong taasan o babaan yung value depende sa gusto mong spacing */
+  display: inline-block; /* Important para gumana yung margin-top */
+}
+/* === HOVER EFFECT PARA SA PICTURE === */
+.image-part img {
+  transition: all 0.3s ease; /* Para smooth yung galaw */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Default shadow */
+}
+
+/* Kapag tinapat na yung mouse */
+.image-part img:hover {
+  transform: scale(1.03); /* Konting laki lang */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Mas malalim na shadow */
+}
+/* === HOVER EFFECT PARA SA APP DOWNLOAD IMAGES === */
+.app-download img {
+  transition: all 0.3s ease; /* Smooth effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Default shadow */
+}
+
+.app-download img:hover {
+  transform: scale(1.05); /* Konting laki */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Mas malalim na shadow */
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  border-radius: 8px; /* Optional: para medyo rounded ang corners */
+}
+
+.hero-image img:hover {
+  transform: scale(1.03); /* Medyo lalaki kapag hinover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Maglalagay ng shadow */
+}
+/* Para sa Tools Cards Images */
+.tool-card img {
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease; /* Smooth na galaw */
+  border-radius: 10px; /* Pwede mong baguhin o tanggalin kung ayaw mo */
+}
+
+.tool-card img:hover {
+  transform: scale(1.05) rotate(1deg); /* Lalaki nang konti at iikot nang slight */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Lalabas ang shadow */
+  filter: brightness(1.1); /* Medyo magiging bright */
+}
+/* Newsletter Section Styles */
+.newsletter-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 40px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.newsletter-content {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.newsletter-content h2 {
+    font-size: 28px;
+    color: #2d6a4f;
+    margin-bottom: 15px;
+}
+
+.newsletter-content p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #333333;
+    cursor: pointer;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.subscribe-btn {
+    padding: 12px 25px;
+    background-color: #40916c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.subscribe-btn:hover {
+    background-color: #2d6a4f;
+}
+
+.terms-text {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #777777;
+    margin-bottom: 25px;
+}
+
+.view-all-btn {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #40916c;
+    border: 1px solid #40916c;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.view-all-btn:hover {
+    background-color: #40916c;
+    color: white;
+}
+
+.newsletter-image {
+    flex: 1;
+    text-align: center;
+}
+
+.newsletter-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .newsletter-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .newsletter-content {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .checkbox-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+    }
+}
+.subscribe-btn {
+    padding: 12px 25px;
+    background-color: #40916c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition para sa lahat ng effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.subscribe-btn:hover {
+    background-color: #2d6a4f;
+    transform: translateY(-2px); /* Umangat nang konti */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Mas malalim na shadow */
+}
+
+.subscribe-btn:active {
+    transform: translateY(0); /* Babalik sa pwesto pag pinindot */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Contributors Section Styles */
+.contributors-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    color: #333333;
+    font-weight: 600;
+}
+
+.view-all-link {
+    font-size: 16px;
+    color: #40916c; /* Green color para match sa site mo */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+.contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.contributor-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.contributor-card:hover {
+    transform: translateY(-5px); /* Effect pag hineover */
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square shape */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info h3 {
+    font-size: 18px;
+    color: #2d6a4f; /* Dark green */
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.article-title {
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contributors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .contributors-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Blogs Section Styles */
+.blogs-section {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Pwede mong baguhin ang height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 30px 0;
+}
+
+.blogs-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.blogs-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para mapuno yung space kahit anong size ng picture */
+    filter: brightness(0.6) contrast(1.1); /* Dadagdagan natin ito para dumilim */
+}
+
+.blogs-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 50px;
+    color: #ffffff; /* White text para kita sa background */
+    max-width: 500px;
+}
+
+.blogs-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.blogs-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.blog-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.blog-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+/* EFFECTS PARA SA BUTTONS */
+.blog-btn:hover {
+    background-color: #40916c; /* Green color ng site mo */
+    border-color: #40916c;
+    transform: translateY(-3px); /* Umangat */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blogs-content {
+        padding: 0 20px;
+    }
+    
+    .blogs-content h2 {
+        font-size: 26px;
+    }
+    
+    .blog-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* --- EFFECTS PARA SA EMAIL INPUT --- */
+.newsletter input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition */
+    outline: none;
+}
+
+/* Effect kapag pinindot o naka-focus */
+.newsletter input[type="email"]:focus {
+    border-color: #40916c; /* Green border */
+    box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.2); /* Light green glow */
+    transform: translateY(-2px); /* Umangat nang konti */
+}
+
+/* Para sa Placeholder Text */
+.newsletter input::placeholder {
+    color: #999;
+    transition: opacity 0.3s ease;
+}
+
+.newsletter input:focus::placeholder {
+    opacity: 0.7; /* Medyo maglalaho yung text kapag nag-type */
+}
+
+
+/* --- EFFECTS PARA SA SUBSCRIBE BUTTON --- */
+.newsletter .btn {
+    padding: 12px 25px;
+    background-color: #40916c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.newsletter .btn:hover {
+    background-color: #2d6a4f; /* Mas dark green */
+    transform: translateY(-3px); /* Umangat */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow effect */
+}
+
+/* Click Effect */
+.newsletter .btn:active {
+    transform: translateY(0); /* Babalik sa pwesto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* --- STYLES PARA SA EXPERT/DOCTOR DIRECTORY --- */
+
+.directory-section {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.directory-header {
+    text-align: left;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.directory-header h2 {
+    font-size: 32px;
+    color: #2d6a4f; /* Green color */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.directory-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.directory-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* EFFECT PAG HINEOVER */
+.directory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    border-color: #40916c;
+}
+
+.condition-tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2d6a4f;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px;
+    border-radius: 50%; /* Circle shape */
+    overflow: hidden;
+    border: 4px solid #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+.directory-card:hover .card-img {
+    border-color: #40916c; /* Green border pag hineover */
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom effect sa picture */
+.directory-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.directory-card h3 {
+    font-size: 19px;
+    color: #2d6a4f; /* Green name */
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.directory-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .directory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- STYLES PARA SA EXPERT/DOCTOR DIRECTORY --- */
+
+.directory-section {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.directory-header {
+    text-align: left;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.directory-header h2 {
+    font-size: 32px;
+    color: #2d6a4f; /* Green color */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.directory-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.directory-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* EFFECT PAG HINEOVER */
+.directory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    border-color: #40916c;
+}
+
+.condition-tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2d6a4f;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px;
+    border-radius: 50%; /* Circle shape */
+    overflow: hidden;
+    border: 4px solid #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+.directory-card:hover .card-img {
+    border-color: #40916c; /* Green border pag hineover */
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom effect sa picture */
+.directory-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.directory-card h3 {
+    font-size: 19px;
+    color: #2d6a4f; /* Green name */
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.directory-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .directory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- STYLES PARA SA PATIENT DIRECTORY --- */
+
+.patient-directory {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.patient-header {
+    text-align: left;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.patient-header h2 {
+    font-size: 32px;
+    color: #2d6a4f; /* Green color */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.patient-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+}
+
+.patient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.patient-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* EFFECT PAG HINEOVER */
+.patient-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    border-color: #40916c;
+}
+
+.condition-tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2d6a4f;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.patient-img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px;
+    border-radius: 50%; /* Circle shape */
+    overflow: hidden;
+    border: 4px solid #f0f0f0;
+    transition: border-color 0.3s ease;
+}
+
+.patient-card:hover .patient-img {
+    border-color: #40916c; /* Green border pag hineover */
+}
+
+.patient-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom effect sa picture */
+.patient-card:hover .patient-img img {
+    transform: scale(1.1);
+}
+
+.patient-card h3 {
+    font-size: 19px;
+    color: #2d6a4f; /* Green name */
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.patient-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .patient-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .patient-grid {
+        grid-template-columns: 1fr;
+    }
+}
